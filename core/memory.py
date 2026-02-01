@@ -24,7 +24,7 @@ class MemoryManager:
         self.tokenizer = tiktoken.get_encoding("cl100k_base")
         self.summary_chain = self.llm.with_structured_output(SummaryOutput)
 
-    # -------- Persistence (New Feature) --------
+    # -------- Persistence --------
     def save_state(self):
         """Lưu toàn bộ trạng thái bộ nhớ ra file JSON."""
         try:

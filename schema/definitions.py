@@ -25,7 +25,7 @@ class SummaryOutput(BaseModel):
     session_summary: SessionSummary
     message_range_summarized: MessageRange
 
-# --- HELPERS CHO VALIDATION ---
+
 def get_allowed_keys_info():
     """
     Trả về whitelist và mapping cho validator.
@@ -34,15 +34,13 @@ def get_allowed_keys_info():
     allowed = set(SessionSummary.model_fields.keys())
     mapping = {}
     
-    # Map các trường cấp 1
     for k in allowed:
         mapping[k] = k
         
-    # Map các trường con của user_profile
     for k in UserProfile.model_fields.keys():
         full_key = f"user_profile.{k}"
         allowed.add(full_key)
-        mapping[k] = full_key # Cho phép LLM trả về 'constraints' thay vì full path
+        mapping[k] = full_key 
         mapping[full_key] = full_key
         
     return allowed, mapping
@@ -67,12 +65,9 @@ class QueryUnderstandingOutput(BaseModel):
         for item in v:
             item = item.strip()
             
-            # 1. Xử lý tiền tố thừa
             if item.startswith("session_summary."):
                 item = item.replace("session_summary.", "")
             
-            # 2. Map từ khóa ngắn sang từ khóa đầy đủ (Smart Mapping)
-            # Ví dụ: "constraints" -> "user_profile.constraints"
             mapped_key = _KEY_MAPPING.get(item)
             
             if mapped_key:
@@ -82,5 +77,4 @@ class QueryUnderstandingOutput(BaseModel):
                 # print(f"DEBUG: Rejected key '{item}' - Not in allowed list")
                 pass
                 
-        # Loại bỏ trùng lặp
         return list(set(cleaned))

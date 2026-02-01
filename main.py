@@ -9,12 +9,12 @@ from core.memory import MemoryManager
 from core.pipeline import QueryPipeline
 from utils.logger import setup_logger
 
-# --- CẤU HÌNH TÊN FILE CỦA BẠN TẠI ĐÂY ---
+
 DATA_DIR = "data"
 CONV_FILE = "input/long_conversation.jsonl"
 QUERY_FILE = "input/ambiguous_queries.jsonl"
 
-# Setup Logger
+
 logger = setup_logger("DemoRunner")
 
 class DualLogger(object):
@@ -34,14 +34,12 @@ class DualLogger(object):
         self.log.flush()
 
 def save_json_result(filename, data):
-    """Lưu kết quả JSON vào thư mục data"""
     filepath = os.path.join(DATA_DIR, filename)
     with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
     print(f"\n[System] Saved result to: {filepath}")
 
 def load_data_smart(filepath):
-    """Hàm đọc dữ liệu thông minh (hỗ trợ cả JSONL và JSON Array)"""
     if not os.path.exists(filepath):
         logger.error(f"File not found: {filepath}")
         return []
@@ -65,14 +63,14 @@ def load_data_smart(filepath):
         logger.error(f"Error reading file {filepath}: {str(e)}")
         return []
 
-# --- MAIN DEMO FLOW ---
+
 
 def run_demo():
     print("=== STARTING CHAT ASSISTANT BACKEND DEMO ===\n")
     
     llm = LLMService(model="gpt-4o-mini")
     
-    # Init Memory
+    
     memory_path = os.path.join(DATA_DIR, "memory/memory_store.json")
     memory = MemoryManager(
         llm_service=llm, 
