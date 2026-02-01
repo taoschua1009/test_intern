@@ -26,7 +26,7 @@ class MemoryManager:
 
     # -------- Persistence --------
     def save_state(self):
-        """Lưu toàn bộ trạng thái bộ nhớ ra file JSON."""
+        """Save all state into file JSON."""
         try:
             os.makedirs(os.path.dirname(self.persist_path), exist_ok=True)
             
@@ -44,7 +44,6 @@ class MemoryManager:
             logger.error(f"Failed to save memory state: {str(e)}")
 
     def load_state(self):
-        """Khôi phục trạng thái bộ nhớ từ file JSON."""
         if not os.path.exists(self.persist_path):
             logger.warning(f"No persistence file found at {self.persist_path}. Starting fresh.")
             return
@@ -68,7 +67,7 @@ class MemoryManager:
     # -------- Public API --------
     def add_message(self, role: str, content: str):
         self.history.append(ChatMessage(role=role, content=content))
-        # Tự động lưu sau mỗi tin nhắn (có thể tối ưu để lưu định kỳ)
+        # Auto save after each message
         self.save_state() 
         self._check_and_summarize()
 
@@ -135,7 +134,7 @@ class MemoryManager:
                 self.save_state() # Lưu ngay sau khi tóm tắt
                 
         except Exception as e:
-            # [Error Handling] Chỉ log lỗi, không crash app, giữ nguyên history để thử lại sau
+            
             logger.error(f"Summarization failed: {str(e)}")
             logger.warning("Skipping summarization this turn.")
 
