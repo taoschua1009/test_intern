@@ -18,7 +18,6 @@ QUERY_FILE = "input/ambiguous_queries.jsonl"
 logger = setup_logger("DemoRunner")
 
 class DualLogger(object):
-    """Ghi output ra cả màn hình và file text"""
     def __init__(self, filepath):
         self.terminal = sys.stdout
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
