@@ -11,8 +11,6 @@ class QueryPipeline:
         self.llm = llm_service.get_llm()
         self.memory = memory_manager
         self.parser_llm = self.llm.with_structured_output(QueryUnderstandingOutput)
-        
-        # Tạo chuỗi danh sách key để đưa vào prompt
         self.valid_keys_str = ", ".join([f"'{k}'" for k in _ALLOWED_KEYS])
 
     def process_query(self, user_query: str) -> QueryUnderstandingOutput:
