@@ -1,0 +1,9 @@
+{"role": "user", "content": "Hi, I am developing a Python backend for a fintech app."}
+{"role": "assistant", "content": "That sounds interesting. What framework are you using?"}
+{"role": "user", "content": "I am using FastAPI because of its performance and async support."}
+{"role": "user", "content": "The database is PostgreSQL, and we need to handle heavy transactions."}
+{"role": "assistant", "content": "PostgreSQL is a great choice. Do you need an ORM?"}
+{"role": "user", "content": "Yes, using SQLAlchemy. Also, the system must comply with GDPR."}
+{"role": "user", "content": "One major constraint is we cannot use any cloud services, only on-prem."}
+{"role": "user", "content": "Can you remember my preference for clean code architecture?"}
+{"role": "user", "content": "I'm also looking into Redis for caching to speed up endpoints."}

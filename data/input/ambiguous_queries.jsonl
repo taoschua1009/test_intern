@@ -1,0 +1,8 @@
+{"query": "How do I configure it for better performance?"}
+{"query": "Is it compliant with the regulations?"}
+{"query": "Can we deploy this to AWS Lambda?"}
+{"query": "What is the connection string format for the database?"}
+{"query": "Why did we choose that over Django?"}
+{"query": "Does it support async operations natively?"}
+{"query": "Are there any licensing costs for the tools we are using?"}
+{"query": "How do I handle the caching invalidation there?"}

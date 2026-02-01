@@ -1,0 +1,29 @@
+{
+  "session_summary": {
+    "user_profile": {
+      "prefs": [
+        "interested in fintech development",
+        "prefers FastAPI for backend development"
+      ],
+      "constraints": [
+        "system must comply with GDPR",
+        "cannot use any cloud services, only on-prem"
+      ]
+    },
+    "key_facts": [
+      "User is developing a Python backend for a fintech app.",
+      "User is using FastAPI for its performance and async support.",
+      "User is using PostgreSQL as the database and needs to handle heavy transactions.",
+      "User is using SQLAlchemy as the ORM."
+    ],
+    "decisions": [],
+    "open_questions": [
+      "Do you need an ORM?"
+    ],
+    "todos": []
+  },
+  "message_range_summarized": {
+    "from": 0,
+    "to": 6
+  }
+}

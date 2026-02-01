@@ -1,0 +1,103 @@
+[
+  {
+    "original_query": "How do I configure it for better performance?",
+    "is_ambiguous": true,
+    "rewritten_query": "How do I configure Redis for better performance in my FastAPI backend?",
+    "needed_context_from_memory": [
+      "user_profile.prefs",
+      "key_facts"
+    ],
+    "clarifying_questions": [
+      "Are you asking about configuring Redis specifically, or are you looking for general performance tips for your FastAPI application?",
+      "What specific performance issues are you experiencing?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI, PostgreSQL, and SQLAlchemy. User is looking into Redis for caching to speed up endpoints and prefers clean code architecture."
+  },
+  {
+    "original_query": "Is it compliant with the regulations?",
+    "is_ambiguous": true,
+    "rewritten_query": "Is the fintech app I am developing compliant with GDPR regulations?",
+    "needed_context_from_memory": [
+      "user_profile.constraints"
+    ],
+    "clarifying_questions": [
+      "Which specific regulations are you referring to?",
+      "Are you asking about GDPR compliance for your fintech app?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app that must comply with GDPR regulations and cannot use any cloud services, only on-prem. User is also looking into Redis for caching to speed up endpoints."
+  },
+  {
+    "original_query": "Can we deploy this to AWS Lambda?",
+    "is_ambiguous": true,
+    "rewritten_query": "Can we deploy the Python backend for my fintech app, which uses FastAPI and PostgreSQL, to AWS Lambda?",
+    "needed_context_from_memory": [
+      "user_profile.constraints"
+    ],
+    "clarifying_questions": [
+      "Are you open to using cloud services for deployment despite your current constraints?",
+      "Do you want to explore alternatives to AWS Lambda for deployment?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User prefers clean code architecture and is looking into Redis for caching to speed up endpoints. The system must comply with GDPR and cannot use any cloud services, only on-prem."
+  },
+  {
+    "original_query": "What is the connection string format for the database?",
+    "is_ambiguous": false,
+    "rewritten_query": "What is the connection string format for PostgreSQL database?",
+    "needed_context_from_memory": [
+      "key_facts"
+    ],
+    "clarifying_questions": [],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI. The database being used is PostgreSQL, and the user is looking for the connection string format for this database."
+  },
+  {
+    "original_query": "Why did we choose that over Django?",
+    "is_ambiguous": true,
+    "rewritten_query": "Why did we choose FastAPI over Django for the backend development of the fintech app?",
+    "needed_context_from_memory": [
+      "user_profile.prefs",
+      "key_facts"
+    ],
+    "clarifying_questions": [
+      "What specific aspects of FastAPI and Django are you referring to?",
+      "Are you asking about performance, ease of use, or another factor?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI for its performance and async support, and is considering Redis for caching to speed up endpoints. User prefers clean code architecture and is interested in fintech development."
+  },
+  {
+    "original_query": "Does it support async operations natively?",
+    "is_ambiguous": true,
+    "rewritten_query": "Does FastAPI support async operations natively?",
+    "needed_context_from_memory": [
+      "key_facts"
+    ],
+    "clarifying_questions": [
+      "What specific technology or framework are you referring to?",
+      "Are you asking about FastAPI or another component of your tech stack?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI, which is known for its performance and async support. User is also looking into Redis for caching to speed up endpoints."
+  },
+  {
+    "original_query": "Are there any licensing costs for the tools we are using?",
+    "is_ambiguous": false,
+    "rewritten_query": "Are there any licensing costs associated with using FastAPI, PostgreSQL, SQLAlchemy, and Redis?",
+    "needed_context_from_memory": [
+      "key_facts"
+    ],
+    "clarifying_questions": [],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI for its performance and async support, PostgreSQL as the database, SQLAlchemy as the ORM, and is looking into Redis for caching to speed up endpoints. The user is interested in knowing if there are any licensing costs associated with these tools."
+  },
+  {
+    "original_query": "How do I handle the caching invalidation there?",
+    "is_ambiguous": true,
+    "rewritten_query": "How do I handle caching invalidation when using Redis for caching in my Python backend for a fintech app?",
+    "needed_context_from_memory": [
+      "user_profile.prefs",
+      "key_facts"
+    ],
+    "clarifying_questions": [
+      "What specific caching strategies are you considering for Redis?",
+      "Are there particular scenarios or data types you are concerned about for caching invalidation?"
+    ],
+    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User is looking into Redis for caching to speed up endpoints and is interested in how to handle caching invalidation."
+  }
+]
