@@ -1,5 +1,6 @@
-.history
 __pycache__
 *.pyc
 .venv
 .env
+.history/
+**/.env*
