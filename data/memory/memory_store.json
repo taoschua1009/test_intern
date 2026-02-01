@@ -1,0 +1,41 @@
+{
+  "history": [
+    {
+      "role": "user",
+      "content": "Can you remember my preference for clean code architecture?"
+    },
+    {
+      "role": "user",
+      "content": "I'm also looking into Redis for caching to speed up endpoints."
+    }
+  ],
+  "summary_output": {
+    "session_summary": {
+      "user_profile": {
+        "prefs": [
+          "Python",
+          "FastAPI",
+          "fintech applications"
+        ],
+        "constraints": [
+          "System must comply with GDPR",
+          "Cannot use any cloud services, only on-prem"
+        ]
+      },
+      "key_facts": [
+        "User is developing a Python backend for a fintech app.",
+        "User is using FastAPI for its performance and async support.",
+        "User is using PostgreSQL as the database and needs to handle heavy transactions.",
+        "User is using SQLAlchemy."
+      ],
+      "decisions": [],
+      "open_questions": [],
+      "todos": []
+    },
+    "message_range_summarized": {
+      "from": 0,
+      "to": 6
+    }
+  },
+  "summarized_count": 7
+}
