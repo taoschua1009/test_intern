@@ -2,40 +2,47 @@
   "history": [
     {
       "role": "user",
-      "content": "Can you remember my preference for clean code architecture?"
+      "content": "For deployment, everything needs to be containerized with Docker."
     },
     {
       "role": "user",
-      "content": "I'm also looking into Redis for caching to speed up endpoints."
+      "content": "And for CI/CD, we are using Jenkins because GitHub Actions is blocked in our internal network."
     }
   ],
   "summary_output": {
     "session_summary": {
       "user_profile": {
-        "prefs": [
-          "Python",
-          "FastAPI",
-          "fintech applications"
-        ],
+        "prefs": [],
         "constraints": [
-          "System must comply with GDPR",
-          "Cannot use any cloud services, only on-prem"
+          "Security is paramount.",
+          "The entire system must be fully GDPR compliant.",
+          "We cannot use AWS, Azure, or any public cloud. It must be deployed on-premise."
         ]
       },
       "key_facts": [
-        "User is developing a Python backend for a fintech app.",
-        "User is using FastAPI for its performance and async support.",
-        "User is using PostgreSQL as the database and needs to handle heavy transactions.",
-        "User is using SQLAlchemy."
+        "User is starting a new project.",
+        "The project is a backend for a fintech application using Python.",
+        "User decided on FastAPI for the project.",
+        "User is using PostgreSQL for the database.",
+        "User is using SQLAlchemy 2.0 for the ORM and wants to keep the database layer abstracted.",
+        "User wants to use Redis for caching to speed up the read endpoints.",
+        "User needs to implement JWT for standard users for authentication.",
+        "User must enforce Two-Factor Authentication (2FA) for Admin accounts.",
+        "The frontend team is building the dashboard using React.",
+        "User requested a GraphQL API alongside the REST endpoints and might use Strawberry for that.",
+        "User is planning to use Celery for background tasks due to heavy monthly report generation.",
+        "User will use RabbitMQ as the message broker for Celery."
       ],
-      "decisions": [],
+      "decisions": [
+        "User decided on FastAPI because of its high performance and native async support."
+      ],
       "open_questions": [],
       "todos": []
     },
     "message_range_summarized": {
       "from": 0,
-      "to": 6
+      "to": 15
     }
   },
-  "summarized_count": 7
+  "summarized_count": 16
 }

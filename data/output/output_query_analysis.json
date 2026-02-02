@@ -1,105 +1,80 @@
 [
   {
-    "original_query": "How do I configure it for better performance?",
+    "original_query": "Why aren't we using GitHub Actions for this?",
     "is_ambiguous": true,
-    "rewritten_query": "How do I configure Redis for better performance in my Python backend using FastAPI?",
-    "needed_context_from_memory": [
-      "key_facts",
-      "user_profile.prefs"
-    ],
-    "clarifying_questions": [
-      "What specific aspect of performance are you looking to improve?",
-      "Are you asking about Redis configuration or FastAPI configuration?",
-      "Do you have any specific performance metrics or goals in mind?"
-    ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User is looking into Redis for caching to speed up endpoints and prefers clean code architecture. The system must comply with GDPR and cannot use any cloud services, only on-prem."
-  },
-  {
-    "original_query": "Is it compliant with the regulations?",
-    "is_ambiguous": true,
-    "rewritten_query": "Is the system I am developing compliant with GDPR regulations?",
+    "rewritten_query": "Why are we not using GitHub Actions for the CI/CD process in our project?",
     "needed_context_from_memory": [
       "user_profile.constraints"
     ],
     "clarifying_questions": [
-      "Which specific regulations are you referring to?",
-      "Are you asking about GDPR compliance for your fintech application?"
+      "What specific concerns do you have about using GitHub Actions?",
+      "Are you looking for alternatives to GitHub Actions?"
     ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI, PostgreSQL, and SQLAlchemy. The system must comply with GDPR and cannot use any cloud services, only on-prem. User is also looking into Redis for caching to speed up endpoints."
+    "final_augmented_context": "The user is working on a fintech application backend using Python with FastAPI, PostgreSQL, SQLAlchemy, Redis, JWT, and 2FA for authentication. The deployment must be on-premise and fully GDPR compliant, with security as a top priority. The CI/CD process is set to use Jenkins because GitHub Actions is blocked in the internal network."
   },
   {
-    "original_query": "Can we deploy this to AWS Lambda?",
+    "original_query": "How should I implement the login flow?",
+    "is_ambiguous": false,
+    "rewritten_query": "What are the steps to implement the login flow for my fintech application using FastAPI, JWT for standard users, and Two-Factor Authentication (2FA) for Admin accounts?",
+    "needed_context_from_memory": [
+      "key_facts",
+      "user_profile.constraints"
+    ],
+    "clarifying_questions": [],
+    "final_augmented_context": "The user is starting a new project, which is a backend for a fintech application using Python and FastAPI. They are implementing JWT for standard user authentication and enforcing Two-Factor Authentication (2FA) for Admin accounts. Security is paramount, and the entire system must be fully GDPR compliant. The user cannot use AWS, Azure, or any public cloud, and the deployment must be on-premise."
+  },
+  {
+    "original_query": "Can we switch to SQS to reduce maintenance overhead?",
+    "is_ambiguous": false,
+    "rewritten_query": "Can we switch to Amazon SQS for message queuing to reduce maintenance overhead?",
+    "needed_context_from_memory": [
+      "key_facts",
+      "user_profile.constraints"
+    ],
+    "clarifying_questions": [],
+    "final_augmented_context": "User is starting a new project, which is a backend for a fintech application using Python. The project is using FastAPI, PostgreSQL, SQLAlchemy 2.0, Redis for caching, and requires JWT for user authentication and 2FA for Admin accounts. The frontend team is building the dashboard using React, and the user requested a GraphQL API alongside REST endpoints. The user is planning to use Celery for background tasks with RabbitMQ as the message broker. For deployment, everything needs to be containerized with Docker, and for CI/CD, Jenkins is being used because GitHub Actions is blocked in the internal network. Security is paramount, and the entire system must be fully GDPR compliant, with a restriction against using AWS, Azure, or any public cloud, requiring on-premise deployment."
+  },
+  {
+    "original_query": "What are we using to serve the dashboard data?",
+    "is_ambiguous": false,
+    "rewritten_query": "What technology or method are we using to serve the data for the dashboard in the fintech application?",
+    "needed_context_from_memory": [
+      "key_facts"
+    ],
+    "clarifying_questions": [],
+    "final_augmented_context": "The user is starting a new project for a fintech application using Python with FastAPI as the backend framework. The frontend team is building the dashboard using React. The user has not specified the exact method or technology for serving the dashboard data, but they are implementing a GraphQL API alongside REST endpoints, which could be used to serve the dashboard data."
+  },
+  {
+    "original_query": "Is it compliant with the security rules?",
     "is_ambiguous": true,
-    "rewritten_query": "Can we deploy the Python backend for the fintech app, which is developed using FastAPI and PostgreSQL, to AWS Lambda?",
+    "rewritten_query": "Is the deployment strategy, which includes containerization with Docker and the use of Jenkins for CI/CD, compliant with the security rules outlined in the project?",
     "needed_context_from_memory": [
       "user_profile.constraints"
     ],
     "clarifying_questions": [
-      "Are you considering any specific limitations or constraints for the deployment?",
-      "Do you want to ensure compliance with GDPR while deploying to AWS Lambda?",
-      "Are you open to using cloud services for this deployment despite your current constraints?"
+      "What specific security rules are you referring to?",
+      "Are you asking about compliance with GDPR, or are there other security rules to consider?"
     ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. The system must comply with GDPR and cannot use any cloud services, only on-prem. User is also looking into Redis for caching to speed up endpoints."
+    "final_augmented_context": "The user is starting a new project, which is a backend for a fintech application using Python. The project will be deployed on-premise, and security is paramount. The entire system must be fully GDPR compliant, and the user cannot use AWS, Azure, or any public cloud. The deployment strategy includes containerization with Docker and the use of Jenkins for CI/CD, as GitHub Actions is blocked in the internal network."
   },
   {
-    "original_query": "What is the connection string format for the database?",
+    "original_query": "How do I configure the worker to consume messages?",
     "is_ambiguous": false,
-    "rewritten_query": "What is the connection string format for PostgreSQL database?",
+    "rewritten_query": "How do I configure the Celery worker to consume messages from RabbitMQ?",
     "needed_context_from_memory": [
       "key_facts"
     ],
     "clarifying_questions": [],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI. The database being used is PostgreSQL, and the user needs to handle heavy transactions."
+    "final_augmented_context": "User is starting a new project, which is a backend for a fintech application using Python. The project will use FastAPI, PostgreSQL, SQLAlchemy 2.0, Redis for caching, and implement JWT for user authentication and Two-Factor Authentication (2FA) for Admin accounts. The frontend team is building the dashboard using React, and the user requested a GraphQL API alongside REST endpoints. The user plans to use Celery for background tasks due to heavy monthly report generation and will use RabbitMQ as the message broker for Celery. The user has also stated that everything needs to be containerized with Docker and that they are using Jenkins for CI/CD."
   },
   {
-    "original_query": "Why did we choose that over Django?",
-    "is_ambiguous": true,
-    "rewritten_query": "Why did we choose FastAPI over Django for developing the backend of the fintech application?",
-    "needed_context_from_memory": [
-      "key_facts"
-    ],
-    "clarifying_questions": [
-      "What specific aspects are you referring to when you mention 'that'?",
-      "Are you asking about the technical reasons for choosing FastAPI over Django?",
-      "Do you want to know about performance, scalability, or other factors?"
-    ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI for its performance and async support, and is considering Redis for caching to speed up endpoints. The user is comparing FastAPI with Django."
-  },
-  {
-    "original_query": "Does it support async operations natively?",
-    "is_ambiguous": true,
-    "rewritten_query": "Does FastAPI support async operations natively?",
-    "needed_context_from_memory": [
-      "key_facts"
-    ],
-    "clarifying_questions": [
-      "Are you asking about FastAPI or another technology?",
-      "Which specific technology are you referring to regarding async operations?"
-    ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI, which is known for its performance and async support."
-  },
-  {
-    "original_query": "Are there any licensing costs for the tools we are using?",
+    "original_query": "Does the database layer support the async requirements?",
     "is_ambiguous": false,
-    "rewritten_query": "Are there any licensing costs associated with using Python, FastAPI, PostgreSQL, SQLAlchemy, and Redis?",
+    "rewritten_query": "Does the database layer in my fintech application, which uses SQLAlchemy 2.0, support the async requirements?",
     "needed_context_from_memory": [
       "key_facts"
     ],
     "clarifying_questions": [],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI for its performance and async support. The database being used is PostgreSQL, and SQLAlchemy is employed for ORM. User is also looking into Redis for caching to speed up endpoints. The user is interested in understanding if there are any licensing costs associated with these tools."
-  },
-  {
-    "original_query": "How do I handle the caching invalidation there?",
-    "is_ambiguous": true,
-    "rewritten_query": "How do I handle caching invalidation when using Redis for caching in my Python backend for a fintech application?",
-    "needed_context_from_memory": [
-      "key_facts",
-      "user_profile.prefs"
-    ],
-    "clarifying_questions": [
-      "What specific scenarios are you considering for caching invalidation?",
-      "Are there particular data types or endpoints you are concerned about?"
-    ],
-    "final_augmented_context": "User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User is looking into Redis for caching to speed up endpoints and is interested in handling caching invalidation."
+    "final_augmented_context": "The user is starting a new project, which is a backend for a fintech application using Python. They have decided on FastAPI for the project and are using PostgreSQL for the database. The user is using SQLAlchemy 2.0 for the ORM and wants to keep the database layer abstracted. They also plan to use Redis for caching, implement JWT for authentication, enforce Two-Factor Authentication for Admin accounts, and use Celery for background tasks with RabbitMQ as the message broker."
   }
 ]

@@ -1,9 +1,18 @@
-{"role": "user", "content": "Hi, I am developing a Python backend for a fintech app."}
-{"role": "assistant", "content": "That sounds interesting. What framework are you using?"}
-{"role": "user", "content": "I am using FastAPI because of its performance and async support."}
-{"role": "user", "content": "The database is PostgreSQL, and we need to handle heavy transactions."}
-{"role": "assistant", "content": "PostgreSQL is a great choice. Do you need an ORM?"}
-{"role": "user", "content": "Yes, using SQLAlchemy. Also, the system must comply with GDPR."}
-{"role": "user", "content": "One major constraint is we cannot use any cloud services, only on-prem."}
-{"role": "user", "content": "Can you remember my preference for clean code architecture?"}
-{"role": "user", "content": "I'm also looking into Redis for caching to speed up endpoints."}
+{"role": "user", "content": "Hi, I am starting a new project. It is a backend for a fintech application using Python."}
+{"role": "assistant", "content": "That sounds like a robust project. What web framework are you planning to use?"}
+{"role": "user", "content": "We decided on FastAPI because we need high performance and native async support."}
+{"role": "user", "content": "For the database, we are definitely using PostgreSQL. Transaction integrity is critical for us."}
+{"role": "assistant", "content": "PostgreSQL is the industry standard for that. Will you use an ORM?"}
+{"role": "user", "content": "Yes, we are using SQLAlchemy 2.0. I want to keep the database layer abstracted."}
+{"role": "user", "content": "Security is paramount. The entire system must be fully GDPR compliant."}
+{"role": "user", "content": "Here is a strict constraint: We cannot use AWS, Azure, or any public cloud. It must be deployed on-premise."}
+{"role": "assistant", "content": "Understood. On-premise deployment and GDPR compliance are noted."}
+{"role": "user", "content": "For caching, I want to use Redis to speed up the read endpoints."}
+{"role": "user", "content": "Regarding authentication, we need to implement JWT for standard users."}
+{"role": "user", "content": "However, for Admin accounts, we must enforce Two-Factor Authentication (2FA)."}
+{"role": "user", "content": "The frontend team is building the dashboard using React."}
+{"role": "user", "content": "They requested a GraphQL API alongside the REST endpoints. We might use Strawberry for that."}
+{"role": "user", "content": "We also have heavy monthly report generation. I am planning to use Celery for background tasks."}
+{"role": "user", "content": "Since we are on-prem, we will use RabbitMQ as the message broker for Celery."}
+{"role": "user", "content": "For deployment, everything needs to be containerized with Docker."}
+{"role": "user", "content": "And for CI/CD, we are using Jenkins because GitHub Actions is blocked in our internal network."}

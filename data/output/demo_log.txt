@@ -1,44 +1,61 @@
 === STARTING CHAT ASSISTANT BACKEND DEMO ===
 
+[System] Cleared old memory state.
 
 >>> DEMO FLOW 1: Session Memory & Summarization Trigger
-[1] [User]: Hi, I am developing a Python backend for a fintech app....
-[2] [Assistant]: That sounds interesting. What framework are you using?...
-[3] [User]: I am using FastAPI because of its performance and async supp...
-[4] [User]: The database is PostgreSQL, and we need to handle heavy tran...
-[5] [Assistant]: PostgreSQL is a great choice. Do you need an ORM?...
-[6] [User]: Yes, using SQLAlchemy. Also, the system must comply with GDP...
-[7] [User]: One major constraint is we cannot use any cloud services, on...
-[8] [User]: Can you remember my preference for clean code architecture?...
-[9] [User]: I'm also looking into Redis for caching to speed up endpoint...
+[1] [User]: Hi, I am starting a new project. It is a backend for a finte...
+[2] [Assistant]: That sounds like a robust project. What web framework are yo...
+[3] [User]: We decided on FastAPI because we need high performance and n...
+[4] [User]: For the database, we are definitely using PostgreSQL. Transa...
+[5] [Assistant]: PostgreSQL is the industry standard for that. Will you use a...
+[6] [User]: Yes, we are using SQLAlchemy 2.0. I want to keep the databas...
+[7] [User]: Security is paramount. The entire system must be fully GDPR ...
+[8] [User]: Here is a strict constraint: We cannot use AWS, Azure, or an...
+[9] [Assistant]: Understood. On-premise deployment and GDPR compliance are no...
+[10] [User]: For caching, I want to use Redis to speed up the read endpoi...
+[11] [User]: Regarding authentication, we need to implement JWT for stand...
+[12] [User]: However, for Admin accounts, we must enforce Two-Factor Auth...
+[13] [User]: The frontend team is building the dashboard using React....
+[14] [User]: They requested a GraphQL API alongside the REST endpoints. W...
+[15] [User]: We also have heavy monthly report generation. I am planning ...
+[16] [User]: Since we are on-prem, we will use RabbitMQ as the message br...
+[17] [User]: For deployment, everything needs to be containerized with Do...
+[18] [User]: And for CI/CD, we are using Jenkins because GitHub Actions i...
 
 [Result] Final Session Summary:
 {
   "session_summary": {
     "user_profile": {
-      "prefs": [
-        "Python",
-        "FastAPI",
-        "fintech applications"
-      ],
+      "prefs": [],
       "constraints": [
-        "System must comply with GDPR",
-        "Cannot use any cloud services, only on-prem"
+        "Security is paramount.",
+        "The entire system must be fully GDPR compliant.",
+        "We cannot use AWS, Azure, or any public cloud. It must be deployed on-premise."
       ]
     },
     "key_facts": [
-      "User is developing a Python backend for a fintech app.",
-      "User is using FastAPI for its performance and async support.",
-      "User is using PostgreSQL as the database and needs to handle heavy transactions.",
-      "User is using SQLAlchemy."
+      "User is starting a new project.",
+      "The project is a backend for a fintech application using Python.",
+      "User decided on FastAPI for the project.",
+      "User is using PostgreSQL for the database.",
+      "User is using SQLAlchemy 2.0 for the ORM and wants to keep the database layer abstracted.",
+      "User wants to use Redis for caching to speed up the read endpoints.",
+      "User needs to implement JWT for standard users for authentication.",
+      "User must enforce Two-Factor Authentication (2FA) for Admin accounts.",
+      "The frontend team is building the dashboard using React.",
+      "User requested a GraphQL API alongside the REST endpoints and might use Strawberry for that.",
+      "User is planning to use Celery for background tasks due to heavy monthly report generation.",
+      "User will use RabbitMQ as the message broker for Celery."
     ],
-    "decisions": [],
+    "decisions": [
+      "User decided on FastAPI because of its high performance and native async support."
+    ],
     "open_questions": [],
     "todos": []
   },
   "message_range_summarized": {
     "from": 0,
-    "to": 6
+    "to": 15
   }
 }
 
@@ -47,56 +64,43 @@
 
 >>> DEMO FLOW 2: Ambiguous Query Understanding
 
-User Query: 'How do I configure it for better performance?'
+User Query: 'Why aren't we using GitHub Actions for this?'
  -> Is Ambiguous: True
- -> Rewritten: How do I configure Redis for better performance in my Python backend using FastAPI?
- -> Memory Keys Needed: ['key_facts', 'user_profile.prefs']
- -> Clarifying Questions: ['What specific aspect of performance are you looking to improve?', 'Are you asking about Redis configuration or FastAPI configuration?', 'Do you have any specific performance metrics or goals in mind?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User is looking into Redis for caching to speed up endpoints and prefers clean code architecture. The system must comply with GDPR and cannot use any cloud services, only on-prem.
-
-User Query: 'Is it compliant with the regulations?'
- -> Is Ambiguous: True
- -> Rewritten: Is the system I am developing compliant with GDPR regulations?
+ -> Rewritten: Why are we not using GitHub Actions for the CI/CD process in our project?
  -> Memory Keys Needed: ['user_profile.constraints']
- -> Clarifying Questions: ['Which specific regulations are you referring to?', 'Are you asking about GDPR compliance for your fintech application?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI, PostgreSQL, and SQLAlchemy. The system must comply with GDPR and cannot use any cloud services, only on-prem. User is also looking into Redis for caching to speed up endpoints.
+ -> Clarifying Questions: ['What specific concerns do you have about using GitHub Actions?', 'Are you looking for alternatives to GitHub Actions?']
+ -> Final Augmented Context: The user is working on a fintech application backend using Python with FastAPI, PostgreSQL, SQLAlchemy, Redis, JWT, and 2FA for authentication. The deployment must be on-premise and fully GDPR compliant, with security as a top priority. The CI/CD process is set to use Jenkins because GitHub Actions is blocked in the internal network.
 
-User Query: 'Can we deploy this to AWS Lambda?'
- -> Is Ambiguous: True
- -> Rewritten: Can we deploy the Python backend for the fintech app, which is developed using FastAPI and PostgreSQL, to AWS Lambda?
- -> Memory Keys Needed: ['user_profile.constraints']
- -> Clarifying Questions: ['Are you considering any specific limitations or constraints for the deployment?', 'Do you want to ensure compliance with GDPR while deploying to AWS Lambda?', 'Are you open to using cloud services for this deployment despite your current constraints?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. The system must comply with GDPR and cannot use any cloud services, only on-prem. User is also looking into Redis for caching to speed up endpoints.
+User Query: 'How should I implement the login flow?'
+ -> Is Ambiguous: False
+ -> Memory Keys Needed: ['key_facts', 'user_profile.constraints']
+ -> Final Augmented Context: The user is starting a new project, which is a backend for a fintech application using Python and FastAPI. They are implementing JWT for standard user authentication and enforcing Two-Factor Authentication (2FA) for Admin accounts. Security is paramount, and the entire system must be fully GDPR compliant. The user cannot use AWS, Azure, or any public cloud, and the deployment must be on-premise.
 
-User Query: 'What is the connection string format for the database?'
+User Query: 'Can we switch to SQS to reduce maintenance overhead?'
+ -> Is Ambiguous: False
+ -> Memory Keys Needed: ['key_facts', 'user_profile.constraints']
+ -> Final Augmented Context: User is starting a new project, which is a backend for a fintech application using Python. The project is using FastAPI, PostgreSQL, SQLAlchemy 2.0, Redis for caching, and requires JWT for user authentication and 2FA for Admin accounts. The frontend team is building the dashboard using React, and the user requested a GraphQL API alongside REST endpoints. The user is planning to use Celery for background tasks with RabbitMQ as the message broker. For deployment, everything needs to be containerized with Docker, and for CI/CD, Jenkins is being used because GitHub Actions is blocked in the internal network. Security is paramount, and the entire system must be fully GDPR compliant, with a restriction against using AWS, Azure, or any public cloud, requiring on-premise deployment.
+
+User Query: 'What are we using to serve the dashboard data?'
  -> Is Ambiguous: False
  -> Memory Keys Needed: ['key_facts']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI. The database being used is PostgreSQL, and the user needs to handle heavy transactions.
+ -> Final Augmented Context: The user is starting a new project for a fintech application using Python with FastAPI as the backend framework. The frontend team is building the dashboard using React. The user has not specified the exact method or technology for serving the dashboard data, but they are implementing a GraphQL API alongside REST endpoints, which could be used to serve the dashboard data.
 
-User Query: 'Why did we choose that over Django?'
+User Query: 'Is it compliant with the security rules?'
  -> Is Ambiguous: True
- -> Rewritten: Why did we choose FastAPI over Django for developing the backend of the fintech application?
- -> Memory Keys Needed: ['key_facts']
- -> Clarifying Questions: ["What specific aspects are you referring to when you mention 'that'?", 'Are you asking about the technical reasons for choosing FastAPI over Django?', 'Do you want to know about performance, scalability, or other factors?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI for its performance and async support, and is considering Redis for caching to speed up endpoints. The user is comparing FastAPI with Django.
+ -> Rewritten: Is the deployment strategy, which includes containerization with Docker and the use of Jenkins for CI/CD, compliant with the security rules outlined in the project?
+ -> Memory Keys Needed: ['user_profile.constraints']
+ -> Clarifying Questions: ['What specific security rules are you referring to?', 'Are you asking about compliance with GDPR, or are there other security rules to consider?']
+ -> Final Augmented Context: The user is starting a new project, which is a backend for a fintech application using Python. The project will be deployed on-premise, and security is paramount. The entire system must be fully GDPR compliant, and the user cannot use AWS, Azure, or any public cloud. The deployment strategy includes containerization with Docker and the use of Jenkins for CI/CD, as GitHub Actions is blocked in the internal network.
 
-User Query: 'Does it support async operations natively?'
- -> Is Ambiguous: True
- -> Rewritten: Does FastAPI support async operations natively?
- -> Memory Keys Needed: ['key_facts']
- -> Clarifying Questions: ['Are you asking about FastAPI or another technology?', 'Which specific technology are you referring to regarding async operations?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI, which is known for its performance and async support.
-
-User Query: 'Are there any licensing costs for the tools we are using?'
+User Query: 'How do I configure the worker to consume messages?'
  -> Is Ambiguous: False
  -> Memory Keys Needed: ['key_facts']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI for its performance and async support. The database being used is PostgreSQL, and SQLAlchemy is employed for ORM. User is also looking into Redis for caching to speed up endpoints. The user is interested in understanding if there are any licensing costs associated with these tools.
+ -> Final Augmented Context: User is starting a new project, which is a backend for a fintech application using Python. The project will use FastAPI, PostgreSQL, SQLAlchemy 2.0, Redis for caching, and implement JWT for user authentication and Two-Factor Authentication (2FA) for Admin accounts. The frontend team is building the dashboard using React, and the user requested a GraphQL API alongside REST endpoints. The user plans to use Celery for background tasks due to heavy monthly report generation and will use RabbitMQ as the message broker for Celery. The user has also stated that everything needs to be containerized with Docker and that they are using Jenkins for CI/CD.
 
-User Query: 'How do I handle the caching invalidation there?'
- -> Is Ambiguous: True
- -> Rewritten: How do I handle caching invalidation when using Redis for caching in my Python backend for a fintech application?
- -> Memory Keys Needed: ['key_facts', 'user_profile.prefs']
- -> Clarifying Questions: ['What specific scenarios are you considering for caching invalidation?', 'Are there particular data types or endpoints you are concerned about?']
- -> Final Augmented Context: User is developing a Python backend for a fintech app using FastAPI and PostgreSQL. User is looking into Redis for caching to speed up endpoints and is interested in handling caching invalidation.
+User Query: 'Does the database layer support the async requirements?'
+ -> Is Ambiguous: False
+ -> Memory Keys Needed: ['key_facts']
+ -> Final Augmented Context: The user is starting a new project, which is a backend for a fintech application using Python. They have decided on FastAPI for the project and are using PostgreSQL for the database. The user is using SQLAlchemy 2.0 for the ORM and wants to keep the database layer abstracted. They also plan to use Redis for caching, implement JWT for authentication, enforce Two-Factor Authentication for Admin accounts, and use Celery for background tasks with RabbitMQ as the message broker.
 
 [System] Saved result to: data\output/output_query_analysis.json
